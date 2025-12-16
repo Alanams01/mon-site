@@ -3,157 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alan & Annael</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <title>Invitation AA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- 1. LE STYLE (CSS) --- */
-        :root {
-            --primary-color: #8E7F7F; /* Couleur Taupe/Élégant */
-            --bg-color: #FDFBF7;      /* Fond crème très clair */
-            --text-color: #4A4A4A;
-        }
-
-        body {
+        /* Réinitialisation et styles de base */
+        body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Lato', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
+            height: 100%;
             font-family: 'Playfair Display', serif;
-            font-weight: 400;
-            margin: 0;
+            background: radial-gradient(circle, #e0f7fa 20%, #b2ebf2 100%); /* Dégradé bleu clair */
+            overflow: hidden; /* Empêche le défilement si le contenu dépasse */
         }
 
-        /* Section Principale (Hero) */
-        .hero {
-            /* Remplace l'URL ci-dessous par la photo de ton choix */
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
+        /* Conteneur principal */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: white;
-            padding: 20px;
         }
 
-        .hero h1 {
-            font-size: 4rem; /* Taille des prénoms */
-            margin-bottom: 10px;
+        /* Motifs floraux aux coins (images de fond) */
+        .corner-floral {
+            position: absolute;
+            width: 150px; /* Ajustez la taille selon vos besoins */
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1; /* Place les fleurs derrière le cadre */
+        }
+        /* Vous devrez remplacer les URL par vos propres images de fleurs bleues */
+        .top-left {
+            top: 0;
+            left: 0;
+            background-image: url('path/to/your/blue-flowers-top-left.png'); /* Remplacez par votre image */
+        }
+        .top-right {
+            top: 0;
+            right: 0;
+            background-image: url('path/to/your/blue-flowers-top-right.png'); /* Remplacez par votre image */
+            transform: scaleX(-1); /* Miroir horizontal */
+        }
+        .bottom-left {
+            bottom: 0;
+            left: 0;
+            background-image: url('path/to/your/blue-flowers-bottom-left.png'); /* Remplacez par votre image */
+            transform: scaleY(-1); /* Miroir vertical */
+        }
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+            background-image: url('path/to/your/blue-flowers-bottom-right.png'); /* Remplacez par votre image */
+            transform: scale(-1); /* Miroir complet */
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        /* Monogrammes AA */
+        .monogram {
+            position: absolute;
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #004d40; /* Bleu foncé */
+            z-index: 2;
+        }
+        .top-monogram {
+            top: 20px;
+        }
+        .bottom-monogram {
+            bottom: 20px;
         }
 
-        /* Sections de contenu */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        /* Cadre ovale pour la photo */
+        .photo-frame {
+            position: relative;
+            width: 80%; /* Largeur relative */
+            max-width: 400px; /* Largeur maximale */
+            aspect-ratio: 2 / 3; /* Ratio vertical */
+            border-radius: 50% / 40%; /* Forme ovale */
+            border: 3px solid #4dd0e1; /* Bordure bleu clair */
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 2;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-style: italic;
+        /* L'image du couple */
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Remplit le cadre sans déformer */
         }
 
-        .details-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .detail-item {
-            flex: 1;
-            min-width: 250px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
+        /* Le bouton "Voir l'invitation" */
+        .btn-invitation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px; /* Bords arrondis */
+            font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
-            transition: background 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-decoration: underline;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Empêche le texte de passer à la ligne */
+        }
+        .btn-invitation:hover {
+            background-color: #f0f0f0; /* Légère différence au survol */
         }
 
-        .btn:hover {
-            background-color: #6d6161;
-        }
-
-        footer {
-            background-color: #fff;
-            padding: 20px;
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
-        }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
-        }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <p>Save the Date</p>
-        <h1>Alan & Annaël</h1>
-        <p>24 Août 2024</p> </header>
+<div class="container">
+    <div class="corner-floral top-left"></div>
+    <div class="corner-floral top-right"></div>
+    <div class="corner-floral bottom-left"></div>
+    <div class="corner-floral bottom-right"></div>
 
-    <section class="container">
-        <h2 class="section-title">Bienvenue !</h2>
-        <p>
-            Nous sommes très heureux de vous inviter à célébrer ce moment unique avec nous. 
-            Vous trouverez ici toutes les informations nécessaires pour le grand jour.
-        </p>
-    </section>
+    <div class="monogram top-monogram">AA</div>
 
-    <section class="container" style="background-color: white;">
-        <h2 class="section-title">Les Détails</h2>
-        
-        <div class="details-grid">
-            <div class="detail-item">
-                <h3>📅 Quand ?</h3>
-                <p>Samedi 24 Août 2024<br>À partir de 14h00</p>
-            </div>
-            <div class="detail-item">
-                <h3>📍 Où ?</h3>
-                <p>Mairie de Paris<br>75000 Paris, France</p>
-                <a href="https://maps.google.com" target="_blank" style="color:var(--primary-color);">Voir le plan</a>
-            </div>
-        </div>
+    <div class="photo-frame">
+        <img src="image_0.png" alt="Couple">
+        <button class="btn-invitation">Voir l'invitation</button>
+    </div>
 
-        <a href="mailto:votre-email@gmail.com" class="btn">Confirmer ma présence</a>
-    </section>
-
-    <footer>
-        <p>Fait avec amour par Alan & Annaël</p>
-    </footer>
+    <div class="monogram bottom-monogram">AA</div>
+</div>
 
 </body>
 </html>
