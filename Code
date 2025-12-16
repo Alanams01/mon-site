@@ -1,7 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alan & Annael</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* --- 1. LE STYLE (CSS) --- */
+        :root {
+            --primary-color: #8E7F7F; /* Couleur Taupe/Élégant */
+            --bg-color: #FDFBF7;      /* Fond crème très clair */
+            --text-color: #4A4A4A;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Section Principale (Hero) */
+        .hero {
+            /* Remplace l'URL ci-dessous par la photo de ton choix */
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem; /* Taille des prénoms */
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Sections de contenu */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .details-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .detail-item {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #6d6161;
+        }
+
+        footer {
+            background-color: #fff;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
 <body>
-    <h1>Bonjour le monde !</h1>
-    <p>Ceci est mon premier site hébergé sur GitHub.</p>
+
+    <header class="hero">
+        <p>Save the Date</p>
+        <h1>Alan & Annaël</h1>
+        <p>24 Août 2024</p> </header>
+
+    <section class="container">
+        <h2 class="section-title">Bienvenue !</h2>
+        <p>
+            Nous sommes très heureux de vous inviter à célébrer ce moment unique avec nous. 
+            Vous trouverez ici toutes les informations nécessaires pour le grand jour.
+        </p>
+    </section>
+
+    <section class="container" style="background-color: white;">
+        <h2 class="section-title">Les Détails</h2>
+        
+        <div class="details-grid">
+            <div class="detail-item">
+                <h3>📅 Quand ?</h3>
+                <p>Samedi 24 Août 2024<br>À partir de 14h00</p>
+            </div>
+            <div class="detail-item">
+                <h3>📍 Où ?</h3>
+                <p>Mairie de Paris<br>75000 Paris, France</p>
+                <a href="https://maps.google.com" target="_blank" style="color:var(--primary-color);">Voir le plan</a>
+            </div>
+        </div>
+
+        <a href="mailto:votre-email@gmail.com" class="btn">Confirmer ma présence</a>
+    </section>
+
+    <footer>
+        <p>Fait avec amour par Alan & Annaël</p>
+    </footer>
+
 </body>
 </html>
